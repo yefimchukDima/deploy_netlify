@@ -1,15 +1,19 @@
-import Image from 'next/image';
-import styled from 'styled-components';
-import {HeaderLogoIcon} from "@/components/SvgIcons/HeaderLogoIcon";
+import styled from "styled-components";
+import { Grid } from "@mui/material";
+import { HeaderLogoIcon } from "@/components/SvgIcons/HeaderLogoIcon";
 import Button from "@/components/Button";
+import {
+  FONT_HANKEN_GROTESK,
+  FONT_SIZE_16,
+  MIDNIGHT_BLUE,
+  NAV_LINKS,
+  DEVICE,
+} from "@/common/constant";
 
 const HeaderContainer = styled.header`
-  display: grid;
-  grid-template-columns: auto 1fr auto;
+  display: flex;
   align-items: center;
-  justify-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: center;
 `;
 
 const LeftContainer = styled.div`
@@ -17,43 +21,51 @@ const LeftContainer = styled.div`
   align-items: center;
 `;
 
-const MiddleContainer = styled.div`
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 1rem;
-  gap: 100px;
-  font-family: 'HK Grotesk';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 19px;
-  text-align: center;
-  color: #183B56;
+const RightContainer = styled.div`
+  display: flex;
   align-items: center;
 `;
 
-const RightContainer = styled.div`
-    
+const MiddleContainer = styled(Grid)<{ gap: number }>`
+  font-family: ${FONT_HANKEN_GROTESK};
+  font-style: normal;
+  font-weight: 500;
+  font-size: ${FONT_SIZE_16};
+  line-height: 19px;
+  height: 100%;
+  color: ${MIDNIGHT_BLUE};
+  gap: ${(props) => props.gap}px;
 `;
 
-const Header = () => {
-    return (
-        <HeaderContainer>
-            <LeftContainer>
-             <HeaderLogoIcon/>
-            </LeftContainer>
-            <MiddleContainer>
-                <p>How it works</p>
-                <p>Why us</p>
-                <p>Testimonials</p>
-                <p>Membership</p>
-                <p>FAQs</p>
-            </MiddleContainer>
-            <RightContainer>
-            <Button label={'Join Now'}/>
-            </RightContainer>
-        </HeaderContainer>
-    );
-};
+function Header() {
+  return (
+    <Grid container>
+      <Grid item xs={3}>
+        <LeftContainer>
+          <HeaderLogoIcon />
+        </LeftContainer>
+      </Grid>
+      <Grid item xs={7}>
+        <MiddleContainer
+          alignItems="center"
+          container
+          columns={NAV_LINKS.length}
+          gap={49}
+        >
+          {NAV_LINKS.map((link) => (
+            <Grid item key={link.label}>
+              {link.label}
+            </Grid>
+          ))}
+        </MiddleContainer>
+      </Grid>
+      <Grid item xs={2}>
+        <RightContainer>
+          <Button label="Join Now" />
+        </RightContainer>
+      </Grid>
+    </Grid>
+  );
+}
 
 export default Header;
