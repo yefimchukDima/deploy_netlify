@@ -73,14 +73,13 @@ function Header() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleDropdownToggle = () => {
-    console.log("d");
     setIsDropdownOpen(!isDropdownOpen);
   };
   const { isMobile } = useScreenSize();
 
   return (
     <Grid p={2} container justifyContent="center">
-      <Grid container alignItems="center" style={{ maxWidth: "1200px" }}>
+      <Grid container alignItems="center" sx={{ maxWidth: "1200px" }}>
         <Grid item xs={isMobile ? 11 : 3}>
           <LeftContainer>
             <HeaderLogoIcon height="37px" width="104px" />

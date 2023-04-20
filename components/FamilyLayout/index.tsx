@@ -139,6 +139,7 @@ function Index() {
   return (
     <GridContainer
       container
+      justifyContent="center"
       gap={5}
       style={{ margin: "78px 0 0 0", maxWidth: "1200px" }}
     >
@@ -442,19 +443,31 @@ function Index() {
                 justifyContent="flex-start"
                 item
                 xs={1}
-                size="16px"
+                size={isMobile ? "10px" : "16px"}
                 weight={400}
               >
                 #
               </Text>
             </Grid>
-            <Text item xs={4} size="16px" weight={400}>
+            <Text
+              item
+              xs={4}
+              lineHeight="12px"
+              size={isMobile ? "10px" : "16px"}
+              weight={400}
+            >
               Expert Name
             </Text>
-            <Text item xs={5} size="16px" weight={400}>
+            <Text item xs={5} size={isMobile ? "10px" : "16px"} weight={400}>
               Associated Institutions
             </Text>
-            <Text textAlign="start" item xs={1} size="16px" weight={400}>
+            <Text
+              textAlign="start"
+              item
+              xs={1}
+              size={isMobile ? "10px" : "16px"}
+              weight={400}
+            >
               Specialty
             </Text>
           </Grid>
@@ -463,6 +476,7 @@ function Index() {
           <Expert
             avatar={u.avatar}
             name={u.name}
+            isMobile={isMobile}
             id={u.id}
             institutions={u.institutions}
             specialty={u.specialty}
@@ -520,7 +534,7 @@ function Index() {
             </StyledListItem>
           </StyledList>
         </TextContainer>
-        <TextContainer padding="18px" item xs={12} lg={3}>
+        <TextContainer padding="18px" item xs={10} lg={3}>
           <LinearGradientText
             fontSize="28px"
             style="52.37deg, #34BF96 -5.7%, #138261 94.69%"

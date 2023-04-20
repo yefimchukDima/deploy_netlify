@@ -47,7 +47,6 @@ export const Text = styled(Grid)<{
   font-style: normal;
   font-weight: ${(props) => props.weight};
   font-size: ${(props) => props.size};
-  line-height: ${(props) => (props.lineHeight ? props.lineHeight : "28px")};
   color: ${(props) => (props.color ? props.color : "#5a7184")};
   letter-spacing: 0.2px;
 `;
@@ -60,9 +59,9 @@ const SubContent = styled(Grid)`
   color: #5a7184;
   margin-bottom: 10px;
 `;
-export const Shape = styled(Grid)`
+export const Shape = styled(Grid)<{ isMobile: boolean }>`
   width: 100%;
-  height: 10px;
+  height: ${(props) => (props.isMobile ? "30%" : "10px")};
   box-sizing: content-box;
   background: white;
   border-radius: 10px;
@@ -76,7 +75,8 @@ export const Shape = styled(Grid)`
     position: absolute;
     top: 70%;
     left: -2px;
-    border-top: 50px solid transparent;
+    border-top: ${(props) => (props.isMobile ? "90px" : "54px")} solid
+      transparent;
     border-left: 130px solid white;
     border-bottom: 54px solid transparent;
   }
