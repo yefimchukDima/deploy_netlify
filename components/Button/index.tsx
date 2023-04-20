@@ -57,13 +57,7 @@ interface ButtonProps {
   width?: string;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  label,
-  width,
-  onClick,
-  color,
-  style,
-}) => {
+function Button({ label, width, onClick, color, style }: ButtonProps) {
   return (
     <ButtonContainer
       style={style}
@@ -74,6 +68,6 @@ const Button: React.FC<ButtonProps> = ({
       {label}
     </ButtonContainer>
   );
-};
+}
 
 export default Button;
