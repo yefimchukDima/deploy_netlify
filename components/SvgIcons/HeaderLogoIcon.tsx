@@ -1,6 +1,12 @@
 import React from "react";
 
-export function HeaderLogoIcon() {
+export function HeaderLogoIcon({
+  height,
+  width,
+}: {
+  height: string;
+  width: string;
+}) {
   return (
     <svg
       width="104"

@@ -17,7 +17,7 @@ const HeaderContainer = styled.header`
 `;
 
 const TopPanel = styled(Grid)`
-  background: rgba(21, 101, 216, 0.33);
+  background: rgba(21, 101, 216, 0.12);
   mix-blend-mode: normal;
   border-radius: 10px 10px 0 0;
   height: 44px;

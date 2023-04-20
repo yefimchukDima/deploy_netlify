@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import React from "react";
+import { CssBaseline } from "@mui/material";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -14,6 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <main>
+        <CssBaseline />
         <Component {...pageProps} />
       </main>
     </>
